@@ -1,9 +1,11 @@
-package com.java.test;
+package com.java.nettyJaxrsServer;
 
 import javax.net.ssl.SSLContext;
 
 import org.jboss.resteasy.plugins.server.netty.NettyJaxrsServer;
 import org.jboss.resteasy.spi.ResteasyDeployment;
+
+import com.java.resteasy.RESTeasy;
 
 public class NettyService {
 	
@@ -18,7 +20,7 @@ public class NettyService {
 	public static void main(String[] args) {
 		NettyJaxrsServer			nettyServer;
 		ResteasyDeployment deployment = new ResteasyDeployment();
-		//½«REST×ÊÔ´Àà¼ÓÈë·þÎñ
+		//ï¿½ï¿½RESTï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		deployment.getResources().add(new RESTeasy());
 		
 		nettyServer = new NettyJaxrsServer();
