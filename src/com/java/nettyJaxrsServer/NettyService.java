@@ -20,7 +20,7 @@ public class NettyService {
 	public static void main(String[] args) {
 		NettyJaxrsServer			nettyServer;
 		ResteasyDeployment deployment = new ResteasyDeployment();
-		//��REST��Դ��������
+		//将rest资源类添加到部署类
 		deployment.getResources().add(new RESTeasy());
 		
 		nettyServer = new NettyJaxrsServer();
