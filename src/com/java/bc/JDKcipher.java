@@ -6,10 +6,10 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 
-public class Ciphers {
+public class JDKcipher {
 	
 	public static SecretKey privateKey;//私钥key
-	public static String type = "AES";//加密类型
+	public static String type = "AES";//加密算法
 	
 	/**
 	 * 初始化私钥Key
@@ -17,6 +17,11 @@ public class Ciphers {
 	static {
 		KeyGenerator instance;
 		try {
+			/**
+			    *    对称加密
+			 * AES 加密 = 16位
+			 * DES 加密= 56位
+			 */
 			int count = 0;
 			switch(type) {
 				case "AES" : count = 128;break;
@@ -33,43 +38,18 @@ public class Ciphers {
 
 	public static void main(String[] args) {
 		
-		/**
-		 * AES 加密 = 16位
-		 * DES 加密= 56位
-		 */
-		
 		//jdk AES 加密
 		System.out.println(new String(jdkCipher("abcdefg".getBytes(), true)));
 		
 		//jdk AES 解密
 		System.out.println(new String(jdkCipher(jdkCipher("abcdefg".getBytes(), true), false)));
 		
-		
-		
-		
-		
-//		Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
-//		try {
-//			Cipher cipher = Cipher.getInstance("AES/ECB/PKCS7Padding");
-//			cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec("00000000000000000".getBytes("UTF-8"), "AES"));
-//			byte[] encData = cipher.doFinal("QWEASDZS".getBytes("UTF-8"));
-//			System.out.println(Base64.encodeBytes(encData));
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-
-		
-		
-		
-		
-		
-		
 	}
 	
 	
 	/**
 	 * jdk 自带加密机
-	 * @param type 		加解密 类型
+	 * @param type 		加解密 算法
 	 * @param str  		加解密byte
 	 * @param isDecode	是否加密(true加密  false解密)
 	 * @return
