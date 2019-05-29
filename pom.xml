@@ -19,11 +19,20 @@
   
   
   <dependencies>
+  		<!-- resteasy -->
   		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-netty</artifactId>
 			<version>3.6.0.Final</version>
 		</dependency>
+		
+		<!-- BC库 -->
+		<dependency>
+		    <groupId>org.bouncycastle</groupId>
+		    <artifactId>bcprov-jdk15on</artifactId>
+		    <version>1.56</version>
+		</dependency>
+				
   </dependencies>
   
 </project>

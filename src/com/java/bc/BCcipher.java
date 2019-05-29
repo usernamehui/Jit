@@ -7,6 +7,8 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
 public class BCcipher {
 	
 	public static SecretKey privateKey;//私钥key
@@ -18,7 +20,7 @@ public class BCcipher {
 	 */
 	static {
 		//加解密引用第三方BC库
-		Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+		Security.addProvider(new BouncyCastleProvider());
 		KeyGenerator instance;
 		try {
 			/**
